@@ -1,4 +1,4 @@
-import 'package:e_commercial/features/login/presentation/pages/login_page.dart';
+import 'package:e_commercial/features/auth/presentation/pages/login_page.dart';
 import 'package:flutter/material.dart';
 
 class BottomNavBar extends StatefulWidget {

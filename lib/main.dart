@@ -1,9 +1,19 @@
-import 'package:e_commercial/features/login/presentation/pages/login_page.dart';
+import 'package:e_commercial/features/auth/presentation/pages/register_page.dart';
+import 'package:e_commercial/firebase_options.dart';
 import 'package:e_commercial/internal/constants/theme_mode/theme_provider.dart';
+import 'package:e_commercial/internal/dependencies/get_it.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-void main() {
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
+  configureDependencies(); 
+  
   runApp(
     ChangeNotifierProvider(
       create: (context) => ThemeProvider(),
@@ -21,7 +31,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: Provider.of<ThemeProvider>(context).themeData,
-      home: const LoginPage(),
+      home: const RegisterPage(),
     );
   }
 }
